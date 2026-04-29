@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Plant Disease Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="main-card">
+
+    <h1>🌿 AI Plant Leaf Disease Detection</h1>
+    <p class="subtitle">EfficientNetB3 + Explainable AI (Grad-CAM)</p>
+
+    <!-- Upload Section -->
+    <div class="upload-section">
+
+        <input type="file" id="fileInput" accept="image/*">
+
+        <div class="divider">OR</div>
+
+        <input type="text" id="urlInput" placeholder="Paste Image URL here">
+
+        <button id="predictBtn">Analyze Leaf</button>
+
+    </div>
+
+    <!-- Loading -->
+    <div id="loading" class="loader hidden"></div>
+
+    <!-- Results -->
+    <div id="resultBox" class="results hidden">
+
+        <h2 id="finalPrediction"></h2>
+
+        <!-- Images Row -->
+        <div class="image-row">
+            <div class="image-box">
+                <h3>Original</h3>
+                <img id="originalImage">
+            </div>
+            <div class="image-box">
+                <h3>Grad-CAM Heatmap 🔥</h3>
+                <img id="gradcamImage">
+            </div>
+        </div>
+
+        <!-- Confidence -->
+        <div class="confidence-section">
+            <div class="progress-container">
+                <div id="confidenceBar"></div>
+            </div>
+            <p id="confidenceText"></p>
+        </div>
+
+        <!-- Top 3 -->
+        <div class="top3-section">
+            <h3>Top 3 Predictions</h3>
+            <div id="top3Results"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
